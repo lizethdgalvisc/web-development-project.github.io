@@ -10,13 +10,3 @@ document.addEventListener('click', e => {
     }
 });
 
-function validate(){
-var email=document.getElementById(email).Value
-var password=document.getElementById(password).value;
-if(email=="correo@ejemplo.com" && password=="1234"){
-    alert("Login exitoso");
-}
-else{
-    alert("Login falló");
-}
-}
