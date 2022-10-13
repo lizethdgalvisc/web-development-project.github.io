@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image: url(../images/work.jpg);
+    background-image: url(../img/work.jpg);
     background-position: cover;
     background-repeat: no-repeat;
     background-size: cover;
@@ -81,7 +81,7 @@ ul {
 .message button {
     padding: 1rem;
     font-weight: 400;
-    background-color: #4a4aee;
+    background-color: #F09700;
     border-radius: 2rem;
     border: none;
     outline: none;
@@ -93,7 +93,7 @@ ul {
 }
 
 .message button:hover {
-    background-color: #6464f8;
+    background-color: #EDEEF0;
 }
 
 .formulario {
