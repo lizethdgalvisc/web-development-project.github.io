@@ -6,7 +6,7 @@ public class EmpleadoVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private Integer identificacion_empleado;
+	private Integer dni_empleado;
 	private Integer contacto_empleado;
 	private Integer calificacion_empleado;
 	private String nombre_empleado;
@@ -16,14 +16,15 @@ public class EmpleadoVO implements Serializable {
 	private String categoria_empleado;
 	private String fecha_nacimiento_empleado;
 	private String disponibilidad_empleado;
-		
+	private String contrasena_empleado;
+	private String direccion_empleado;
 	
-	public Integer getIdentificacion_empleado() {
-		return identificacion_empleado;
+	public Integer getDni_empleado() {
+		return dni_empleado;
 	}
 	
-	public void setIdentificacion_empleado(Integer identificacion_empleado) {
-		this.identificacion_empleado = identificacion_empleado;
+	public void setDni_empleado(Integer dni_empleado) {
+		this.dni_empleado = dni_empleado;
 	}
 	
 	public Integer getContacto_empleado() {
@@ -98,4 +99,21 @@ public class EmpleadoVO implements Serializable {
 		this.disponibilidad_empleado = disponiblidad_empleado;
 	}
 
+	public String getContrasena_empleado() {
+		return contrasena_empleado;
+	}
+	
+	public void setContrasena_empleado(String contrasena_empleado) {
+		this.contrasena_empleado = contrasena_empleado;
+	}
+	
+	public String getDireccion_empleado() {
+		return direccion_empleado;
+	}
+	
+	public void setDireccion_empleado(String direccion_empleado) {
+		this.direccion_empleado = direccion_empleado;
+	}
+	
+	
 }

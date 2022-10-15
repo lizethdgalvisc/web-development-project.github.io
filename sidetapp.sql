@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-09-2022 a las 07:46:22
+-- Tiempo de generación: 14-10-2022 a las 01:47:10
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -18,10 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `sedetapp`
+-- Base de datos: `sidetapp`
 --
-CREATE DATABASE IF NOT EXISTS `sedetapp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sedetapp`;
 
 -- --------------------------------------------------------
 
@@ -36,11 +34,6 @@ CREATE TABLE `area_conocimiento_usu` (
   `id_empleado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `area_conocimiento_usu`
---
-
-TRUNCATE TABLE `area_conocimiento_usu`;
 -- --------------------------------------------------------
 
 --
@@ -54,11 +47,6 @@ CREATE TABLE `beneficios_oferta` (
   `id_oferta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `beneficios_oferta`
---
-
-TRUNCATE TABLE `beneficios_oferta`;
 -- --------------------------------------------------------
 
 --
@@ -71,11 +59,6 @@ CREATE TABLE `ciudad` (
   `departamento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `ciudad`
---
-
-TRUNCATE TABLE `ciudad`;
 -- --------------------------------------------------------
 
 --
@@ -84,6 +67,7 @@ TRUNCATE TABLE `ciudad`;
 
 CREATE TABLE `empleado` (
   `DNI` int(11) NOT NULL,
+  `contraseña` varchar(20) NOT NULL,
   `nombre_usu` varchar(20) NOT NULL,
   `fechanacimiento_usu` date NOT NULL,
   `edad_usu` varchar(20) NOT NULL,
@@ -98,10 +82,13 @@ CREATE TABLE `empleado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Truncar tablas antes de insertar `empleado`
+-- Volcado de datos para la tabla `empleado`
 --
 
-TRUNCATE TABLE `empleado`;
+INSERT INTO `empleado` (`DNI`, `contraseña`, `nombre_usu`, `fechanacimiento_usu`, `edad_usu`, `id_areaconocimiento_usu`, `id_habilidad_usu`, `id_ciudad`, `direccion_usu`, `telefono_usu`, `disponibilidad_usu`, `hoja_vida_usu`, `calificacion_usu`) VALUES
+(123, '123', 'cristian', '2022-10-05', '18', 0, 0, 0, 'bogota', '333', 'si', '', 0),
+(222, '123', 'ferney', '2022-10-02', '22', 0, 0, 0, 'jcdcn', '444', 'si', '', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +97,7 @@ TRUNCATE TABLE `empleado`;
 
 CREATE TABLE `empleador` (
   `NIT` int(11) NOT NULL,
+  `contraseña` int(11) NOT NULL,
   `direccion_emp` varchar(20) NOT NULL,
   `telefono_emp` varchar(20) NOT NULL,
   `nombre_emp` varchar(20) NOT NULL,
@@ -119,11 +107,6 @@ CREATE TABLE `empleador` (
   `representante_legal_emp` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `empleador`
---
-
-TRUNCATE TABLE `empleador`;
 -- --------------------------------------------------------
 
 --
@@ -137,11 +120,6 @@ CREATE TABLE `empleado_oferta` (
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `empleado_oferta`
---
-
-TRUNCATE TABLE `empleado_oferta`;
 -- --------------------------------------------------------
 
 --
@@ -155,11 +133,6 @@ CREATE TABLE `funciones:oferta` (
   `id_oferta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `funciones:oferta`
---
-
-TRUNCATE TABLE `funciones:oferta`;
 -- --------------------------------------------------------
 
 --
@@ -173,11 +146,6 @@ CREATE TABLE `habilidades_usuario` (
   `id_empleado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `habilidades_usuario`
---
-
-TRUNCATE TABLE `habilidades_usuario`;
 -- --------------------------------------------------------
 
 --
@@ -196,11 +164,6 @@ CREATE TABLE `oferta` (
   `fk_NIT_empleador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `oferta`
---
-
-TRUNCATE TABLE `oferta`;
 -- --------------------------------------------------------
 
 --
@@ -214,11 +177,6 @@ CREATE TABLE `razon_social_emp` (
   `id_empleador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `razon_social_emp`
---
-
-TRUNCATE TABLE `razon_social_emp`;
 -- --------------------------------------------------------
 
 --
@@ -232,11 +190,6 @@ CREATE TABLE `requisitos_oferta` (
   `id_oferta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `requisitos_oferta`
---
-
-TRUNCATE TABLE `requisitos_oferta`;
 --
 -- Índices para tablas volcadas
 --
@@ -399,18 +352,6 @@ ALTER TABLE `area_conocimiento_usu`
 --
 ALTER TABLE `beneficios_oferta`
   ADD CONSTRAINT `beneficios_oferta_ibfk_1` FOREIGN KEY (`id_oferta`) REFERENCES `oferta` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `empleado`
---
-ALTER TABLE `empleado`
-  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`id_ciudad`) REFERENCES `ciudad` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `empleador`
---
-ALTER TABLE `empleador`
-  ADD CONSTRAINT `empleador_ibfk_1` FOREIGN KEY (`id_ciudad`) REFERENCES `ciudad` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `empleado_oferta`
