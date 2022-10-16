@@ -18,8 +18,10 @@ body {
 }
 
 a {
+    top: 75px;
     color: black;
     text-decoration: none;
+    position: relative;
 }
 
 ul {
@@ -100,7 +102,7 @@ ul {
     width: 400px;
     padding: 1rem;
     margin: 2rem;
-    background-color: rgb(51, 51, 51, 0.602);
+    background-color: rgb(163, 163, 163, 0.602);
     text-align: center;
 }
 
@@ -137,11 +139,9 @@ ul {
     cursor: pointer;
 }
 
-.cuenta-gratis {
-    padding: 2rem 0;
-}
-
 .formulario input {
+    position: relative;
+    top:55px ;
     width: 70%;
     display: block;
     margin: auto;
@@ -153,7 +153,7 @@ ul {
     outline: none;
     padding: .2rem 0;
     font-size: .9rem;
-    color: white;
+    color: #000;
 }
 
 .formulario input[type="button"] {
@@ -171,6 +171,8 @@ ul {
 }
 
 .formulario input[type="submit"] {
+    position: relative;
+    top: 50px;
     width: 60%;
     margin: auto;
     border: solid thin white;
